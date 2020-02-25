@@ -7,6 +7,15 @@ private:
 public:
 	First(int n1=0, int n2=0)
 		:num1(n1), num2(n2){}
+
+	First& operator=(First& first) {
+		cout << "정의한 복사생성자" << endl;
+		num1 = first.num1;
+		num2 = first.num2;
+
+		return *this;
+	}
+
 	void ShowData() {
 		cout << num1 << ", " << num2 << endl;
 	}
@@ -35,4 +44,7 @@ int main(void) {
 	// 유도클래스에서 대입연산자를 오버로딩하지 않은 경우
 	// 유도클래스의 default 대입연산자가 기초클래스의 default 대입연산자를 호출하여
 	// 기초클래스의 멤버변수도 복사된다.
+
+	// 기초클래스에서 대입연산자가 정의되어 있다면
+	// 이 대입연산자를 호출해준다.
 }
